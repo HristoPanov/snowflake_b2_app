@@ -4,6 +4,7 @@ Repository for Snowflake badge 2 - Data Application Builders Workshop
 API integration  <br />
 Data ingestion from google sheets  <br />
 Python APP for Snowflake update  <br />
+Upload files to Internal Stages Snowflake <br />
 ## Snowflake how to set varaibles and functions
 set mystery_bag = 'What is in here?';<br />
 select $myster_bag;<br />
