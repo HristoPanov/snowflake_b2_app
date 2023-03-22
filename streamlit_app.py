@@ -32,7 +32,7 @@ import requests
 
 fruit_choise = streamlit.text_input('What fruit would you like information aboyt?','Kiwi')
 streamlit.write('The user entered',fruit_choise)
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choise")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choise)
 #normalize json response
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 #display the table
