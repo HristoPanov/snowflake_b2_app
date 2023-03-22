@@ -53,4 +53,6 @@ streamlit.dataframe(my_data_rows)
 # add another entry list
 fruit_choise_2 = streamlit.text_input('What fruit would you like to add?','jackfruit')
 streamlit.write('Thanks for adding ',fruit_choise_2)
+#insert the entered value in the relevant table
+my_cur.execute("INSER INTO PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values " +fruit_choise_2);
 
