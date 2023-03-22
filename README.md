@@ -9,5 +9,9 @@ set mystery_bag = 'What is in here?';<br />
 select $myster_bag;<br />
 create function sum_mystery_bag_vars (var1 number,var2 number, var3 number) returns number as 'select var1+var2+var3';<br />
 select sum_mystery_bag_vars (12,36,204);<br />
+## Sites used
+https://fdc.nal.usda.gov/index.html <br />
+https://streamlit.io/ <br />
+https://rivery.io/ <br />
 
 
