@@ -26,6 +26,19 @@ streamlit.dataframe(fruits_to_show)
 
 # New Section to display fuityvice api response
 streamlit.header("Fruityvice Fruit Advice!")
+try:
+  fruit_choise = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choise:
+    streamlit.error("Please select a fruit to get information for.")
+  else:
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choise)
+    #normalize json response
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    #display the table
+    streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+  streamlit.error()
+streamlit.write('The user entered',fruit_choise)
 
 #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 #streamlit.text(fruityvice_response.json()) # just text display
@@ -33,14 +46,9 @@ streamlit.header("Fruityvice Fruit Advice!")
 #fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 #display the table
 #streamlit.dataframe(fruityvice_normalized)
+#streamlit.write('The user entered',fruit_choise)
+#streamlit.write('The user entered',fruit_choise)
 
-fruit_choise = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered',fruit_choise)
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choise)
-#normalize json response
-fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-#display the table
-streamlit.dataframe(fruityvice_normalized)
 #don't run anything past here while troubleshouting
 streamlit.stop()
 
